@@ -31,6 +31,8 @@ public class calculatorLogic : MonoBehaviour {
 
         display.text = answer.ToString();
 
+        AnswerDestroyed();
+
     }
 
     public void Subtract()
@@ -38,8 +40,9 @@ public class calculatorLogic : MonoBehaviour {
         answer = float.Parse(field1.text) - float.Parse(field2.text);
 
         display.text = answer.ToString();
+        AnswerDestroyed();
 
-      
+
     }
     
     public void Multiply()
@@ -48,6 +51,8 @@ public class calculatorLogic : MonoBehaviour {
 
         display.text = answer.ToString();
 
+        AnswerDestroyed();
+
 
     }
     public void Divide()
@@ -55,6 +60,8 @@ public class calculatorLogic : MonoBehaviour {
         answer = float.Parse(field1.text) / float.Parse(field2.text);
 
         display.text = answer.ToString();
+
+        AnswerDestroyed();
     }
 
     public void fallingNum()
@@ -89,7 +96,7 @@ public class calculatorLogic : MonoBehaviour {
     public int num8;
     public int num9;
     public int num10;
-
+   
 
     public void numBttn(string numberB)
     {
@@ -116,6 +123,20 @@ public class calculatorLogic : MonoBehaviour {
     {
         buttonDivide.interactable = false;
     }
+    public void AnswerDestroyed()
+    {
+        foreach ( Text element in RandomNumList)
+        {
+            if(display.text == element.text)
+            {
+                Destroy(element);
+            }
+         
+        }
+    }
+    }
+    
+
 
     
 
@@ -124,4 +145,4 @@ public class calculatorLogic : MonoBehaviour {
 
 
 
-}
+
