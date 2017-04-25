@@ -11,6 +11,7 @@ public class calculatorLogic : MonoBehaviour {
     public int minVal = 1;
     public int maxVal = 150;
     private float fallSpeed = 2.5f;
+    public Text ActiveGameOver;
  
     public Button buttonAdd;
     public Button buttonMultiply;
@@ -76,7 +77,6 @@ public class calculatorLogic : MonoBehaviour {
 
     private void Update()
     {
-        transform.Translate(Vector3.down * fallSpeed *Time.deltaTime, Space.World);
         if( buttonAdd.interactable == false && buttonSubtract.interactable == false && buttonMultiply.interactable == false && buttonDivide.interactable == false)
         {
             buttonAdd.interactable = true;
@@ -134,7 +134,19 @@ public class calculatorLogic : MonoBehaviour {
          
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GameEnd(); 
     }
+
+    void GameEnd()
+    {
+        ActiveGameOver.enabled = true;
+        print("Game over");
+        
+    }
+}
     
 
 
