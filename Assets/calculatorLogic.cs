@@ -7,11 +7,11 @@ public class calculatorLogic : MonoBehaviour {
     public InputField field1;
     public InputField field2;
     public float answer;
-    public Text display;
+    public Text showAnswer;
     public int minVal = 1;
     public int maxVal = 150;
     private float fallSpeed = 2.5f;
-    public Text ActiveGameOver;
+   
  
     public Button buttonAdd;
     public Button buttonMultiply;
@@ -30,7 +30,7 @@ public class calculatorLogic : MonoBehaviour {
     {
        answer = float.Parse(field1.text) + float.Parse(field2.text);
 
-        display.text = answer.ToString();
+        showAnswer.text = answer.ToString();
 
         AnswerDestroyed();
 
@@ -40,7 +40,11 @@ public class calculatorLogic : MonoBehaviour {
     {
         answer = float.Parse(field1.text) - float.Parse(field2.text);
 
-        display.text = answer.ToString();
+
+        showAnswer.text = answer.ToString();
+
+        print(showAnswer.text);
+
         AnswerDestroyed();
 
 
@@ -50,7 +54,7 @@ public class calculatorLogic : MonoBehaviour {
     {
         answer = float.Parse(field1.text) * float.Parse(field2.text);
 
-        display.text = answer.ToString();
+        showAnswer.text = answer.ToString();
 
         AnswerDestroyed();
 
@@ -60,7 +64,7 @@ public class calculatorLogic : MonoBehaviour {
     {
         answer = float.Parse(field1.text) / float.Parse(field2.text);
 
-        display.text = answer.ToString();
+        showAnswer.text = answer.ToString();
 
         AnswerDestroyed();
     }
@@ -77,7 +81,7 @@ public class calculatorLogic : MonoBehaviour {
 
     private void Update()
     {
-        if( buttonAdd.interactable == false && buttonSubtract.interactable == false && buttonMultiply.interactable == false && buttonDivide.interactable == false)
+       if( buttonAdd.interactable == false && buttonSubtract.interactable == false && buttonMultiply.interactable == false && buttonDivide.interactable == false)
         {
             buttonAdd.interactable = true;
             buttonMultiply.interactable = true;
@@ -85,17 +89,8 @@ public class calculatorLogic : MonoBehaviour {
             buttonSubtract.interactable = true;
         }
     }
-
-    public int num1;
-    public int num2;
-    public int num3;
-    public int num4;
-    public int num5;
-    public int num6;
-    public int num7;
-    public int num8;
-    public int num9;
-    public int num10;
+    
+ 
    
 
     public void numBttn(string numberB)
@@ -127,7 +122,7 @@ public class calculatorLogic : MonoBehaviour {
     {
         foreach ( Text element in RandomNumList)
         {
-            if(display.text == element.text)
+            if(showAnswer.text == element.text)
             {
                 Destroy(element);
             }
@@ -135,17 +130,7 @@ public class calculatorLogic : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        GameEnd(); 
-    }
-
-    void GameEnd()
-    {
-        ActiveGameOver.enabled = true;
-        print("Game over");
-        
-    }
+ 
 }
     
 
