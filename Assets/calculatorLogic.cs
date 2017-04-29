@@ -75,6 +75,7 @@ public class calculatorLogic : MonoBehaviour {
         {
             int randomNum = (Random.Range(minVal, maxVal));
             element.text = randomNum.ToString();
+            transform.Translate(-312, 275, 0, Space.World);
         }
 
     }
@@ -88,6 +89,7 @@ public class calculatorLogic : MonoBehaviour {
             buttonDivide.interactable = true;
             buttonSubtract.interactable = true;
         }
+        transform.Translate(-312, 275, 0, Space.World);
     }
     
  
@@ -128,6 +130,7 @@ public class calculatorLogic : MonoBehaviour {
             }
          
         }
+        
     }
 
  
